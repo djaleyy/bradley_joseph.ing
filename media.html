@@ -77,8 +77,118 @@
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
+
+        /* ABOUT SECTION ENHANCEMENT (Restreint à la section #about) */
+        @media (min-width: 1025px) {
+            #about .about-grid {
+                align-items: start;
+            }
+            #about .about-left {
+                position: sticky;
+                top: 110px;
+            }
+        }
+
+        /* DICEBBS VIDEO SHOWCASE */
+        .dicebbs-showcase-box {
+            margin: 30px 0 15px 0;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(20, 20, 20, 0.6) 100%);
+            border: 1px solid rgba(232, 164, 39, 0.25);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 35px rgba(232, 164, 39, 0.06);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+            transition: all 0.4s ease;
+        }
+
+        .dicebbs-showcase-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            opacity: 0.8;
+        }
+
+        .dicebbs-showcase-box:hover {
+            border-color: rgba(232, 164, 39, 0.45);
+            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.6), 0 0 45px rgba(232, 164, 39, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .dicebbs-showcase-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .dicebbs-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .dicebbs-badge-pub {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 20px;
+            background: rgba(232, 164, 39, 0.12);
+            color: var(--text-light);
+            border: 1px solid rgba(232, 164, 39, 0.3);
+        }
+
+        .dicebbs-player-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+            aspect-ratio: 16 / 9;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .dicebbs-video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            background: #000;
+        }
+
+        .dicebbs-showcase-footer {
+            margin-top: 15px;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: rgba(245, 241, 232, 0.7);
+        }
+
+        .dicebbs-showcase-footer i {
+            color: var(--accent-color);
+            margin-right: 6px;
+        }
         
         @media (max-width: 768px) {
+            .dicebbs-showcase-box {
+                padding: 18px;
+                margin: 25px 0 15px 0;
+            }
             .rankont-btn-group {
                 flex-direction: column;
                 gap: 12px;
@@ -237,6 +347,34 @@
                     <div class="about-text reveal">
                         <p class="lang-fr">L'image est mon langage. Travaillant actuellement au sein de l'équipe de Dicebbs Multimedia, je cherche à figer l'émotion d'un concert, la personnalité d'un portrait ou l'énergie d'un événement corporate. Ce cadre me permet d'exercer ma passion en attendant d'acquérir mes propres équipements de production.</p>
                         <p class="lang-en">Images are my language. Currently working with the team at Dicebbs Multimedia, I strive to capture the emotion of a concert, the personality of a portrait, or the energy of a corporate event. This allows me to practice my passion while waiting to acquire my own production equipment.</p>
+
+                        <!-- Team Video Showcase: Dicebbs Multimedia -->
+                        <div class="dicebbs-showcase-box">
+                            <div class="dicebbs-showcase-header">
+                                <div class="dicebbs-tag">
+                                    <i class="fas fa-users"></i>
+                                    <span class="lang-fr">Équipe · Dicebbs Multimedia</span>
+                                    <span class="lang-en">Team · Dicebbs Multimedia</span>
+                                </div>
+                                <span class="dicebbs-badge-pub">
+                                    <i class="fas fa-bullhorn"></i>
+                                    <span class="lang-fr">Spot Publicitaire</span>
+                                    <span class="lang-en">Commercial Spot</span>
+                                </span>
+                            </div>
+                            <div class="dicebbs-player-wrapper">
+                                <video class="dicebbs-video" controls preload="metadata" playsinline poster="Image/dicebbs_poster.jpg">
+                                    <source src="Image/Dicebbs_PUB_2026.MP4" type="video/mp4">
+                                    <span class="lang-fr">Votre navigateur ne prend pas en charge la lecture vidéo.</span>
+                                    <span class="lang-en">Your browser does not support video playback.</span>
+                                </video>
+                            </div>
+                            <div class="dicebbs-showcase-footer">
+                                <p class="lang-fr"><i class="fas fa-info-circle"></i> Spot publicitaire réalisé en tant que membre de l'équipe Dicebbs Multimedia.</p>
+                                <p class="lang-en"><i class="fas fa-info-circle"></i> Commercial spot created as a member of the Dicebbs Multimedia team.</p>
+                            </div>
+                        </div>
+
                         <a href="#contact" class="btn-text">
                             <span class="lang-fr">Discuter de votre vision <i class="fas fa-arrow-right"></i></span>
                             <span class="lang-en">Discuss your vision <i class="fas fa-arrow-right"></i></span>
